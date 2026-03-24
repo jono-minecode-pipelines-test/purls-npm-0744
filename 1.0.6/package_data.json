@@ -1,0 +1,49 @@
+{
+    "name": "-g-bypong",
+    "version": "1.0.6",
+    "description": "-g\u5f00\u6e90\u5c0f\u6d4b\u8bd5",
+    "main": "index.js",
+    "bin": {
+        "open": "bin/cli.js",
+        "close": "bin/cli.js"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "_id": "-g-bypong@1.0.6",
+    "_nodeVersion": "16.18.1",
+    "_npmVersion": "8.19.2",
+    "dist": {
+        "integrity": "sha512-gP+sR00TFk254IlWooqmOv9wHsqLSV3FABu/I+9vc8Ft9tZSxW1gZfKsssat3y1nS1w5Wwo/h+FRf7Rptc4Sow==",
+        "shasum": "6f482b73c3d91e6bfda5e0fce4ac2376c8900aee",
+        "tarball": "https://registry.npmjs.org/-g-bypong/-/-g-bypong-1.0.6.tgz",
+        "fileCount": 3,
+        "unpackedSize": 608,
+        "signatures": [
+            {
+                "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                "sig": "MEUCIA2HEJuizMdc7z8nJjIntv63Y9ju7hI/zl2eS2EW+rcjAiEAlaYoh22DU+Dz+JyTX1uRYM58b7IYzZXSgicHxNbGfEM="
+            }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj7NY0ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmrvtg//cDGFO6OCB5rJg0OWQILWMi1sGxDCZxvYrdzx21/RUfS8HrvR\r\neS8ElemdRGw4z7CeuZk9N0vSfl7fHmdeOBV2RrEIn8yH5VrTJMwrxrnVDEJg\r\nhCWnugDNYoIM8V+E/Y9sf6QlVaiN63pOfj3wx70lK8smNFzf/+30+oq0s8VY\r\n7UP5nR2tbXj8tg3MDJ9sjCA7YmYXI0FQUqfJwlpwfaNEhzbtCOJn2qfAlimz\r\naRg845Ieke2nIbz4CRjLei1mn0aShtnvCqk/U7NlUJORpnlhiJgqc+lQVNw9\r\neSXzpBj3OYOxPBYJpL2JDfbtTKLv92E2GioTLQLaSJl7P/jjP33YFryDBP/T\r\nUebvz77nHSBR0R3UhghjS/CJblyjbZkOUNHV/TRAGgHsAPHL0jtE9xfGOgfw\r\nAtsbMPlaPI/G/Xh9jfuH/SWCZ6jMQcBIhMPNnMqIm0Gofg7HzA4TS/pna0xH\r\nMuYOf/iqyRGD10XFcF+Xp1h3oEjTg1qdru/dBYNFmqO/Npiix57vTWJFgKxe\r\n1m7uLrrVptaMNJu/WohwHh9NSI5BmnZhP98JPtubiqsdIpbJbQibGP8lBEBl\r\nc/Khh3OnGRbSmZbmzHrTlhKgA06hVfk23/tTEaQsfNfWsNszdLDL8eUW5Nmw\r\ngiqhCa8UjXy6vtZq/zas7HJYoiZX5qOYiSI=\r\n=ODe/\r\n-----END PGP SIGNATURE-----\r\n"
+    },
+    "_npmUser": {
+        "name": "baoyipeng",
+        "email": "1710954887@qq.com"
+    },
+    "directories": {},
+    "maintainers": [
+        {
+            "name": "baoyipeng",
+            "email": "1710954887@qq.com"
+        }
+    ],
+    "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/-g-bypong_1.0.6_1676465716293_0.13158700350270824"
+    },
+    "_hasShrinkwrap": false
+}
