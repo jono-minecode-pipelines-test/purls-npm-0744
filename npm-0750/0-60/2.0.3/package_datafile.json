@@ -1,0 +1,193 @@
+{
+    "name": "0-60",
+    "version": "2.0.3",
+    "description": "clone a skeleton repo and set up CI build as fast as possible",
+    "main": "index.js",
+    "module": "es/index.js",
+    "sideEffects": false,
+    "scripts": {
+        "lint": "eslint src test --cache",
+        "lint:fix": "eslint --fix src test --cache",
+        "lint:watch": "esw --watch src test --cache",
+        "prettier": "prettier --write *.json *.md *.js src/**/*.js test/**/*.js",
+        "prettier:check": "prettier --list-different *.json *.md *.js src/**/*.js test/**/*.js",
+        "flow": "flow",
+        "flow:coverage": "for file in src/**.js test/**.js; do echo $file; flow coverage $file; done",
+        "flow:watch": "flow-watch -e js,js.flow,flowconfig --ignore es/ --ignore node_modules/ --watch .flowconfig --watch src/ --watch test/",
+        "clean": "rimraf es lib $(cd src; ls) *.js.flow",
+        "build": "npm run clean && babel src --out-dir es && flow-copy-source -v src/ es && cross-env BABEL_ENV=es5 babel src --out-dir . && flow-copy-source -v src/ .",
+        "test": "cross-env NODE_ENV=production BABEL_ENV=es5 mocha $npm_package_config_mocha && cross-env NODE_ENV=production BABEL_ENV=coverage nyc --reporter=lcov --reporter=text mocha $npm_package_config_mocha",
+        "test:watch": "cross-env NODE_ENV=production BABEL_ENV=test mocha --watch $npm_package_config_mocha",
+        "test:debug": "cross-env NODE_ENV=production BABEL_ENV=test mocha --inspect-brk $npm_package_config_mocha",
+        "codecov": "nyc report --reporter=text-lcov > coverage.lcov; codecov",
+        "prepublishOnly": "npm run clean && npm run prettier:check && npm run lint && flow && npm test && npm run build",
+        "open:coverage": "open coverage/lcov-report/index.html",
+        "semantic-release": "semantic-release"
+    },
+    "bin": {
+        "060": "cli.js",
+        "0-60": "cli.js"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged && npm run lint && flow",
+            "commit-msg": "commitlint -e $GIT_PARAMS",
+            "pre-push": "npm test"
+        }
+    },
+    "lint-staged": {
+        "*.{js,json,css,md}": [
+            "prettier --write",
+            "git add"
+        ]
+    },
+    "commitlint": {
+        "extends": [
+            "@jedwards1211/commitlint-config"
+        ]
+    },
+    "prettier": {
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "es5"
+    },
+    "config": {
+        "mocha": "-r @babel/register test/configure.js test/*.js",
+        "commitizen": {
+            "path": "cz-conventional-changelog"
+        }
+    },
+    "nyc": {
+        "include": [
+            "src/**/*.js"
+        ],
+        "require": [
+            "@babel/register"
+        ],
+        "sourceMap": false,
+        "instrument": false
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jedwards1211/0-60.git"
+    },
+    "author": {
+        "name": "Andy Edwards"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jedwards1211/0-60/issues"
+    },
+    "homepage": "https://github.com/jedwards1211/0-60#readme",
+    "devDependencies": {
+        "@babel/cli": "^7.1.5",
+        "@babel/core": "^7.1.6",
+        "@babel/node": "^7.2.2",
+        "@babel/plugin-proposal-class-properties": "^7.1.0",
+        "@babel/plugin-proposal-export-default-from": "^7.0.0",
+        "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+        "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+        "@babel/plugin-transform-runtime": "^7.1.0",
+        "@babel/preset-env": "^7.1.6",
+        "@babel/preset-flow": "^7.0.0",
+        "@babel/register": "^7.0.0",
+        "@commitlint/cli": "^6.0.2",
+        "@commitlint/config-conventional": "^6.0.2",
+        "@jedwards1211/commitlint-config": "^1.0.0",
+        "@jedwards1211/eslint-config": "^2.0.0",
+        "@jedwards1211/eslint-config-flow": "^1.0.3",
+        "babel-eslint": "^10.0.1",
+        "babel-plugin-istanbul": "^5.1.0",
+        "chai": "^4.2.0",
+        "chai-subset": "^1.6.0",
+        "codecov": "^3.1.0",
+        "copy": "^0.3.2",
+        "cross-env": "^5.2.0",
+        "eslint": "^5.9.0",
+        "eslint-config-prettier": "^3.3.0",
+        "eslint-plugin-flowtype": "^3.2.0",
+        "eslint-watch": "^4.0.2",
+        "flow-bin": "^0.116.1",
+        "flow-copy-source": "^2.0.2",
+        "flow-watch": "^1.1.4",
+        "husky": "^1.1.4",
+        "istanbul": "^0.4.5",
+        "lint-staged": "^8.0.4",
+        "mocha": "^6.0.0",
+        "nyc": "^13.1.0",
+        "prettier": "^1.15.2",
+        "prettier-eslint": "^8.8.2",
+        "rimraf": "^2.6.0",
+        "semantic-release": "^15.13.3"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.1.5",
+        "@octokit/rest": "^16.25.6",
+        "base32": "^0.0.6",
+        "es6-promisify": "^6.0.0",
+        "fs-extra": "^7.0.0",
+        "glob": "^7.1.3",
+        "globby": "^8.0.1",
+        "inquirer": "^6.2.0",
+        "js-yaml": "^3.12.0",
+        "lodash": "^4.17.11",
+        "npm-profile": "^4.0.1",
+        "promisify-child-process": "^3.1.3",
+        "semantic-release-cli": "^4.0.8",
+        "superagent": "^4.0.0-beta.5",
+        "travis-ci": "^2.2.0"
+    },
+    "renovate": {
+        "extends": [
+            ":separateMajorReleases",
+            ":combinePatchMinorReleases",
+            ":ignoreUnstable",
+            ":prImmediately",
+            ":renovatePrefix",
+            ":updateNotScheduled",
+            ":preserveSemverRanges",
+            ":semanticPrefixFixDepsChoreOthers",
+            ":automergeDisabled",
+            "group:monorepos"
+        ],
+        "automerge": true,
+        "major": {
+            "automerge": false
+        }
+    },
+    "gitHead": "5280116ce24a009985444f7e1911cd40dff87cf3",
+    "_id": "0-60@2.0.3",
+    "_npmVersion": "6.4.1",
+    "_nodeVersion": "8.17.0",
+    "_npmUser": {
+        "name": "jedwards1211",
+        "email": "jedwards@fastmail.com"
+    },
+    "dist": {
+        "integrity": "sha512-nL1q/+SoakbN5MswPY09sVP9I4tPsxxMkyrz3PUPoWDSNb+Qxo+y9TBHg6BsoQb6n2otzFAfb3KoaDiBo01j5g==",
+        "shasum": "b2ad8acff9d2c8d4b5c15660c1f6c5fc72e60504",
+        "tarball": "https://registry.npmjs.org/0-60/-/0-60-2.0.3.tgz",
+        "fileCount": 69,
+        "unpackedSize": 546657,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeL0i7CRA9TVsSAnZWagAAmsgP/RfYGs5QQTi3RxW+34Tj\nvAucJsNMDbRvD10/TbMPh9xHbv7/DuNNCMN+HpI794AOyWoAUTHIKFA958qd\nSMo/39W+aevHQjrHbjT33PIG0WIyfIsd67RE1c2eo0bl7HMjDz0VmpqgGSF/\nwkRjYG0GE3B1jz9ZJr5P7vWpYpDXETUyXMVo2U91GGEmBzScAd1ML2FcR1xB\nhyDvb+VWXzFEWycg4DIKmdokrhZoWLt6fEB/nrZTda5gI9ygGzPOmdc8IE27\nIRH2t3ctFK1joTYaIjvGIAbPDYk6pcDqbqlHP8gvhRbjO2wFXNPSvGVbmB2b\nrCgcJKEQVOTKS5JV5zzNDtARAMcNld6bZEYLQdEZGUxwPwA/ZdOlBk1WyV+i\nNRVgLfjfczaXCzmv4S0BiaIstQ+5BBZAjYjmhPQelEze2UQY9KiiKWzHUA1e\nts2KD+rVqYBvl8JhMKvDi4T3N/6hEss+/h7Hj9zToOLjkotCAiKpKkeA9KGo\nCUVANk+KC3J+Jxad9Ay6A0zFKh/tdUSR9VzheA2/K8t8l+yhUC3n54Fx11eH\nC6Ax9cXgNYZ7Gfm7icUCjm4R4ociLXmSUlx/txNLpOno6c7x3liseHe9JQZ/\nyNNVJeS9Gf2qaB/bYoChy3UAyrAvskb3rtJr2XDSEe6PA3lKmJQr5Ohd//U4\nyIRj\r\n=A8p0\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+            {
+                "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                "sig": "MEUCIEMcexPFjaNzTyFLyBU7YnOHFsy3L79oOQ5ylWFHt2SmAiEAx+nmWMma9zKrqG7lKYD9ZGJEAlt6lovG+pW7oxkJnWE="
+            }
+        ]
+    },
+    "maintainers": [
+        {
+            "name": "jedwards1211",
+            "email": "jedwards@fastmail.com"
+        }
+    ],
+    "directories": {},
+    "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/0-60_2.0.3_1580157115236_0.35698450594323416"
+    },
+    "_hasShrinkwrap": false
+}

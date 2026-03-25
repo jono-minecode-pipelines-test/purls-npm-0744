@@ -1,0 +1,142 @@
+{
+    "name": "0-60",
+    "version": "2.0.9",
+    "description": "clone a skeleton repo and set up CI build as fast as possible",
+    "sideEffects": false,
+    "scripts": {
+        "semantic-release": "semantic-release"
+    },
+    "bin": {
+        "060": "cli.js",
+        "0-60": "cli.js"
+    },
+    "config": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jedwards1211/0-60.git"
+    },
+    "author": {
+        "name": "Andy Edwards"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jedwards1211/0-60/issues"
+    },
+    "homepage": "https://github.com/jedwards1211/0-60#readme",
+    "dependencies": {
+        "@babel/runtime": "^7.12.0",
+        "@octokit/rest": "^16.25.6",
+        "base32": "^0.0.6",
+        "es6-promisify": "^6.0.0",
+        "fs-extra": "^7.0.0",
+        "glob": "^7.1.3",
+        "globby": "^8.0.1",
+        "inquirer": "^6.2.0",
+        "js-yaml": "^3.12.0",
+        "lodash": "^4.17.11",
+        "npm-profile": "^4.0.1",
+        "promisify-child-process": "^3.1.3",
+        "superagent": "^6.1.0",
+        "travis-ci": "^2.2.0"
+    },
+    "exports": {
+        "./package.json": "./package.json",
+        "./CircleCIClient": {
+            "require": "./CircleCIClient.js",
+            "import": "./CircleCIClient.mjs"
+        },
+        "./cli": {
+            "require": "./cli.js",
+            "import": "./cli.mjs"
+        },
+        "./config": {
+            "require": "./config.js",
+            "import": "./config.mjs"
+        },
+        "./createGitHubRepository": {
+            "require": "./createGitHubRepository.js",
+            "import": "./createGitHubRepository.mjs"
+        },
+        "./createSemanticReleaseGithubToken": {
+            "require": "./createSemanticReleaseGithubToken.js",
+            "import": "./createSemanticReleaseGithubToken.mjs"
+        },
+        "./getCircleCIConfig": {
+            "require": "./getCircleCIConfig.js",
+            "import": "./getCircleCIConfig.mjs"
+        },
+        "./getGitHubConfig": {
+            "require": "./getGitHubConfig.js",
+            "import": "./getGitHubConfig.mjs"
+        },
+        "./getNpmToken": {
+            "require": "./getNpmToken.js",
+            "import": "./getNpmToken.mjs"
+        },
+        "./getVsceToken": {
+            "require": "./getVsceToken.js",
+            "import": "./getVsceToken.mjs"
+        },
+        "./installDeps": {
+            "require": "./installDeps.js",
+            "import": "./installDeps.mjs"
+        },
+        "./isInGitRepo": {
+            "require": "./isInGitRepo.js",
+            "import": "./isInGitRepo.mjs"
+        },
+        "./octokit": {
+            "require": "./octokit.js",
+            "import": "./octokit.mjs"
+        },
+        "./parseRepositoryUrl": {
+            "require": "./parseRepositoryUrl.js",
+            "import": "./parseRepositoryUrl.mjs"
+        },
+        "./setUpCircleCI": {
+            "require": "./setUpCircleCI.js",
+            "import": "./setUpCircleCI.mjs"
+        },
+        "./setUpSkeleton": {
+            "require": "./setUpSkeleton.js",
+            "import": "./setUpSkeleton.mjs"
+        },
+        "./setUpTravisCI": {
+            "require": "./setUpTravisCI.js",
+            "import": "./setUpTravisCI.mjs"
+        }
+    },
+    "_id": "0-60@2.0.9",
+    "_nodeVersion": "12.16.3",
+    "_npmVersion": "6.14.8",
+    "dist": {
+        "integrity": "sha512-nffwE5BOGf+ZBLGR2H2f99YcMVgkrFhivN0kPG50AVIltekf95+8bmOusbyc2F/1zvwqYU1fhNhsoXlpFbnnTg==",
+        "shasum": "23daa51e4b4e229d357c74052849a16d4abcf08f",
+        "tarball": "https://registry.npmjs.org/0-60/-/0-60-2.0.9.tgz",
+        "fileCount": 51,
+        "unpackedSize": 170866,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfmFicCRA9TVsSAnZWagAA3x0P/3b6tKfl28mPf1VHuHUq\n61+wQ6/Vv/W0+jB6lHPFPWisZCmfPdfuUmLX0IobpUCVZfuJwaXadv3Nv44f\nKVrDbkEqKFrgWX/EsCUD88KI9aEj2LPaGaq7WWeKU7Brlj2ShAkx1yes1J5Y\nek/GeX5839IVVM8hY/fY9Wvu3HGSUcWUHsFUgi6Uvxf8/EiVAXRwj38QRuYQ\nTGjnTreH+Xqp7dDrez0eiuBfyVCwYPX2MbF1wRQEAaTcqSGNHwoUA48Cqvwl\nF7rkcKjpxsaHEFU6A64ahV95Ite9+F3q3ERRaaABBC7VNuNSfxOAWoPQ+7b9\nBp4+e/Qjaayh5nLF/CUSq/mjE4vAut5VbwFq5EM5jtAedldlAeKcfd5SL5Zz\n/tFc+pVWKgLRuRZUDC3HTm6XDiMZhTUv+PEy9mOAa3eER45mW2OvydbjD3Hf\n444A2H6ufVjqW8gDdLDjHTesTj/QgIORH2pfEgDcwBFi/o2UftAaUiv4oSUc\nYmXMgLNEF+wov0uUGUvfMATjXlaVScvAHqApi0olV/kshE0JDYb7Bte7Dam4\njywwe3ss2FaUm6etZimpU10kp8aC3kEOe1mFZEFCT/mp/rJO4B4X8u4PzltY\nLFkhgMNlUQ8uGi8cLTGBXdLGtJsnndZgkUEih43wip73EL9GDOWLBWA3fCW2\nDml6\r\n=Ud2a\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+            {
+                "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                "sig": "MEUCIF7v60zfIBEJ2OoRQ7wWzszA7fKNmVv2oYrh0fuWyG+rAiEA61dSAmVVVpch+zHOM2xi8X6YTKwcTCK71VQKSVayhMY="
+            }
+        ]
+    },
+    "maintainers": [
+        {
+            "name": "jedwards1211",
+            "email": "jedwards@fastmail.com"
+        }
+    ],
+    "_npmUser": {
+        "name": "jedwards1211",
+        "email": "jedwards@fastmail.com"
+    },
+    "directories": {},
+    "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/0-60_2.0.9_1603819676297_0.8582022168584713"
+    },
+    "_hasShrinkwrap": false
+}

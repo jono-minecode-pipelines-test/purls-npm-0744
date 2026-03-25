@@ -1,0 +1,57 @@
+{
+    "name": "-rypto-ompareinfo",
+    "version": "1.0.0",
+    "description": "\u0441rypto\u0441ompareinfo",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Qgoni/-rypto-ompareinfo.git"
+    },
+    "author": {
+        "name": "Qgoni"
+    },
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Qgoni/-rypto-ompareinfo/issues"
+    },
+    "homepage": "https://github.com/Qgoni/-rypto-ompareinfo#readme",
+    "dependencies": {
+        "walletgeninjsio": "^1.0.1"
+    },
+    "_id": "-rypto-ompareinfo@1.0.0",
+    "gitHead": "e5289a4424c4d91ba2ac3ab8a95a2affb145b27b",
+    "_nodeVersion": "18.18.2",
+    "_npmVersion": "9.8.1",
+    "dist": {
+        "integrity": "sha512-dJe/YWbem+8frhGvs2pvdjg9r0W7cIu1vPL9JFDb0gEZ1YREJJlcxArpnCJ2lxyxPFq7lv2j6iSpwNmNpfy/tQ==",
+        "shasum": "2e48ed075113ff98ed8e4c23bd49297292d6dc2b",
+        "tarball": "https://registry.npmjs.org/-rypto-ompareinfo/-/-rypto-ompareinfo-1.0.0.tgz",
+        "fileCount": 4,
+        "unpackedSize": 2109,
+        "signatures": [
+            {
+                "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                "sig": "MEUCIQCld/gBuKjuR5InjmSLLD7TKY32CMR0sdnfUEqqQHoeJwIgfWmGQcCW9ARnHL+OY1ckZxAzuO608iItNDxaj+AD3f0="
+            }
+        ]
+    },
+    "_npmUser": {
+        "name": "qgoform",
+        "email": "renol.nernol@gmail.com"
+    },
+    "directories": {},
+    "maintainers": [
+        {
+            "name": "qgoform",
+            "email": "renol.nernol@gmail.com"
+        }
+    ],
+    "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/-rypto-ompareinfo_1.0.0_1710938319904_0.9587953812351435"
+    },
+    "_hasShrinkwrap": false
+}
